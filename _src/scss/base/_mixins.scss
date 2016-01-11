@@ -1,0 +1,130 @@
+// #Sizing
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin min($min-width, $min-height: $min-width) {
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+@mixin max($max-width, $max-height: $max-width) {
+  max-width: $max-width;
+  max-height: $max-height;
+}
+
+
+
+// #Positioning
+
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number  {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+
+  position: $position;
+}
+
+@mixin absolute($args) {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args) {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args) {
+  @include position(relative, $args);
+}
+
+
+
+// #Breakpoints
+
+@mixin breakpoint($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Couldn't find a breakpoint named `#{$name}`.";
+  }
+}
+
+
+
+// #PX-to-REM & #Text
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin text($size, $l-height: null, $weight: null, $color: null) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  line-height: $l-height;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin rem($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+
+// #Keyframes
+
+@mixin keyframe($animation_name) {
+  @-webkit-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+
+
+// #Clearfix
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: ' ';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+// #Center
+
+%center {
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

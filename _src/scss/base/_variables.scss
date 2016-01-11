@@ -1,0 +1,28 @@
+// #Text-Variables
+$font-main              : 'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-weight-thin       : 100;
+$font-weight-extralight : 200;
+$font-weight-black      : 900;
+
+$color-text-dark  : #2B3E51;
+$color-text-light : #FFFFFF;
+$color-text-blue  : #3FAAE2;
+
+$color-background-light : #FFFFFF;
+$color-background-grey  : #F7F7F7;
+$color-background-blue  : #3FAAE2;
+
+
+
+// #Breakpoints
+$breakpoints: (
+  'tiny':   ( max-width:  767px ),
+  'small':  ( min-width:  768px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
+);
+
+
+
+// #File-Paths
+$path-img   : '../img';

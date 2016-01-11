@@ -1,0 +1,23 @@
+// #Footer-Styles
+
+footer {
+  @include size(100%, auto);
+  @include absolute(bottom 25px);
+  font-weight: $font-weight-black;
+
+  @media only screen and (max-height: 500px) {
+    position: static;
+    padding-bottom: 25px;
+  }
+
+  .copyright {
+    @include text(10px, 1.0);
+    margin-bottom: -10px;
+  }
+
+  a {
+    @include text(8px, 1.0);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}

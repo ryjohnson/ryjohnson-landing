@@ -1,0 +1,13 @@
+// #Header-Styles
+
+header {
+  @include size(100%, auto);
+}
+
+.logo {
+  margin-top: 50px;
+
+  @media only screen and (max-height: 700px) {
+    margin-top: 30px;
+  }
+}
