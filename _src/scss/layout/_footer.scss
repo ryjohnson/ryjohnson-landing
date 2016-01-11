@@ -19,5 +19,6 @@ footer {
     @include text(8px, 1.0);
     letter-spacing: 2px;
     text-transform: uppercase;
+    cursor: pointer;
   }
 }
