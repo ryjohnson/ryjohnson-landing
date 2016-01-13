@@ -115,11 +115,11 @@ a:active {
 
   p {
     @media only screen and (max-height: 700px) and (max-width: 400px) {
-      @include text(20px, 1.4);
+      @include text(20px, 1.4, $font-weight-normal);
     }
 
     @media only screen and (max-height: 600px) and (max-width: 400px) {
-      @include text(15px, 1.4);
+      @include text(16px, 1.4, $font-weight-normal);
     }
 
     &:first-of-type {
